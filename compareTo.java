@@ -23,7 +23,7 @@ public class compareTo
         Test ti = new Test(ib);
         int [][] atom = new int[one.getHeight()][one.getWidth()];
         int[][]ab;
-        ab=new int[io.getHeight()][io.getWidth()];
+        ab=ti.mat1(io);
         int[][]ba= pi.mat2(ib);
         for(int i=0;i<atom.length;i++)
         {
@@ -48,15 +48,18 @@ public class compareTo
                     adder++;
             }
         }
-        double tot = (adder/atom.length*atom[0].length)*100.0;
+        double tot = (adder/(atom.length*atom[0].length))*100.0;
         return tot;
     }
 
     public String toString()
     {
         String rn="";
+        if(ab(io,ib)>=80.0)
+        rn+=Double.toString(ab(io,ib))+"% \nA";
+        else 
+        rn+=Double.toString(ab(io,ib))+"\nThis letter is not A";
         
-
-        return rn+Double.toString(ab(io, ib));
+        return rn;
     }
 }
